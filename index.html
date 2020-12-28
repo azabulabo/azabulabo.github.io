@@ -1,90 +1,407 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progate</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>あざぶラボ</title>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@azabulabo" />
+    <meta name="twitter:creator" content="@azabulabo" />
+    <meta property="og:url" content="https://azabulabo.github.io" />
+    <meta property="og:title" content="あざぶラボ / A Zabu Labo" />
+    <meta property="og:description" content="あざぶラボのポートフォリオサイト" />
+    <meta property="og:image" content="https://ruccho.github.io/images/card1.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link href="fontawesome-free-5.13.1-web/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
-      </div>
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">レッスン</a>
-        <a href="#">新規登録</a>
-        <a href="#" class="login">ログイン</a>
-      </div>
-    </div>
-  </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
-      <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
-      <div class="btn-wrapper">
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        <p>or</p>
-        <a href="#" class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</a>
-        <a href="#" class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</a>
-      </div>
-    </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>Learn Where to Get Started!</h2>
-      </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p>HTML & CSS</p>
-          </div>
-          <p class="text-contents">ウェブページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
+
+<body class="drawer drawer--left">
+    <!--
+    <header role="banner">
+        <button type="button" class="drawer-toggle drawer-hamburger">
+            <span class="sr-only">toggle navigation</span>
+            <span class="drawer-hamburger-icon"></span>
+        </button>
+        <nav class="drawer-nav" role="navigation">
+            <ul class="drawer-menu">
+                <li><a class="drawer-brand" href="#">あざぶラボ</a></li>
+                <li><a class="drawer-menu-item" href="#">Nav1</a></li>
+                <li><a class="drawer-menu-item" href="#">Nav2</a></li>
+            </ul>
+        </nav>
+    </header>
+-->
+    <main role="main" class="main">
+        <div class="mainvision-container">
+            <div class="container">
+                <img src="images/hiraganaworks0_light_filled.png" class="mainvision-logo">
+                <div class="row">
+                    <div class="col-md-8">
+                    </div>
+                </div>
+                <div class="links">
+                    <ul>
+                        <a target="_blank" href="https://github.com/ruccho">
+                            <li><i class="fab fa-github"></i><br><span class="link-label">GitHub</span></li>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/ruccho_vector">
+                            <li><i class="fab fa-twitter"></i><br><span class="link-label">Twitter</span></li>
+                        </a>
+                        <a target="_blank" href="https://ruccho.hateblo.jp">
+                            <li><img src="images/hateblo.png"><br><span class="link-label">Blog</span></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="scroll-icon"><span></span></div>
         </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p>jQuery</p>
-          </div>
-          <p class="text-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
+        <div class="works-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 s__ease1 s_fade s_right" data-delighter="">
+                        <h2 class="border-bottom s__ease1  s_fade s_right" data-delighter="" style="width: 50%;">ABOUT
+                        </h2>
+                        <div class="about-container">
+                            <img src="images/icon.png" class="rounded-circle user-icon">
+                            <h4>あざぶラボ / A Zabu Labo</h4>
+                            <p class="s__ease1  s_fade s_right" data-delighter="">
+                                Indie game devloper. ドット絵とゲーム制作をやっています。よろしくお願いします。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="s__ease1 s_fade s_right" data-delighter="">
+                            <h2 class="border-bottom s__ease1  s_fade s_right" data-delighter="" style="width: 50%;">
+                                NEWS
+                            </h2>
+
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">2020.12.28</th>
+                                        <td>サイト名を変更しました。いくつかのプログラム作品を公開しました。</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2020.12.27</th>
+                                        <td>「」を公開しました。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h2 class="border-bottom" style="width: 50%;">TWITTER</h2>
+                        <a class="twitter-timeline" data-width="400" data-height="750" data-theme="dark"
+                            href="https://twitter.com/ruccho_vector?ref_src=twsrc%5Etfw">Tweets by azabulabo</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p>Ruby</p>
-          </div>
-          <p class="text-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
+        <div class="works-container">
+            <div class="container">
+                <h2 class="border-bottom s__ease1 s_fade s_right" style="width: 50%;" data-delighter>WORKS</h2>
+                <h4 class=" s__ease0 s_fade s_right" data-delighter="">作品</h4>
+                <div class="works-year border-bottom">
+                    <div class="works-year-label">
+                        2020～
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="chikaro/index.html" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="chikaro/images/chikaro-bg.png" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">work in progress</span>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">タイトル１</h5>
+                                        <p class="card-text">「<i>セリフセリフセリフセリフセリフ</i>」<br>○○2Dアクションゲーム制作中。
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="https://twitter.com/i/events/1276581939802038272" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="https://pbs.twimg.com/ext_tw_video_thumb/1225685196135006215/pu/img/O28dPmS-0bGBv2WB.jpg"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">work in progress</span>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">タイトル２</h5>
+                                        <p class="card-text"><i>セリフ！セリフ！セリフアクション誕生！！</i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="https://unityroom.com/games/colonies" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/colonies.png" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">タイトル３</h5>
+                                        <p class="card-text">
+                                            説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明！Unity 1週間ゲームジャム「」で制作。
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="https://www.youtube.com/watch?v=hBJtfs3w7-4" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/kotonohako.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">pixelart</span>
+                                        </p>
+                                        <h5 class="card-title">ももももも (Momomomomomo)</h5>
+                                        <p class="card-text">
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="https://github.com/ruccho/BitonicPixelSorter" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="https://user-images.githubusercontent.com/16096562/85205446-628a1f80-b356-11ea-8a0b-ddc198db3572.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">program</span>
+                                        </p>
+                                        <h5 class="card-title">○○○ Pixel Sorter</h5>
+                                        <p class="card-text">
+                                            Unityでリアルタイム動作する Pixel ○○○○○○○。○○○○○○○○○○を応用した○○○○○○○により最適化されている。
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="https://github.com/ruccho/WaterRW" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="https://user-images.githubusercontent.com/16096562/73915969-d07dff00-48ff-11ea-8049-35ed87a50215.gif"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">program</span>
+                                        </p>
+                                        <h5 class="card-title">Water○○○</h5>
+                                        <p class="card-text">
+                                            Unity用の○○○シェーダー。インタラクティブな波動計算がC# ○○○○○○○○○により高速に動作する。
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="works-year-label">
+                        2020～
+                    </div>
+                </div>
+                <div class="works-year border-bottom">
+                    <div class="works-year-label">
+                        2019
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="https://unityroom.com/games/attractors" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/attractors.gif" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">タイトル４</h5>
+                                        <p class="card-text">○○を操作し、飛来する○○を捕まえて○○を集めるオンラインゲーム。Unity 1週間ゲームジャム「」で制作。
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="card s__ease0 s_fade s_up" data-delighter>
+                                <img src="images/nkn-croped.png" class="card-img-top">
+                                <div class="card-body">
+                                    <p>
+                                        <span class="badge badge-secondary">pixelart</span>
+                                    </p>
+                                    <h5 class="card-title">タイトル５</h5>
+                                    <p class="card-text">写真をトレースして制作したドット絵。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card s__ease0 s_fade s_up" data-delighter>
+                                <img src="images/subway.png" class="card-img-top">
+                                <div class="card-body">
+                                    <p>
+                                        <span class="badge badge-secondary">pixelart</span>
+                                    </p>
+                                    <h5 class="card-title">Subway</h5>
+                                    <p class="card-text">配信で制作。</p>
+                                </div>
+                            </div>
+                            <div class="card s__ease0 s_fade s_up" data-delighter>
+                                <img src="images/tksmdir.png" class="card-img-top">
+                                <div class="card-body">
+                                    <p>
+                                        <span class="badge badge-secondary">pixelart</span>
+                                    </p>
+                                    <h5 class="card-title">Takashimadaira</h5>
+                                    <p class="card-text">写真をトレースして制作したドット絵。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="works-year-label">
+                        2019
+                    </div>
+                </div>
+                <div class="works-year border-bottom">
+                    <div class="works-year-label">
+                        2018
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="https://aidentity3b.github.io" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/aidentity.jpg" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">movie</span>
+                                        </p>
+                                        <h5 class="card-title">abcdefghi (アインィィ)</h5>
+                                        <p class="card-text">～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～受賞。
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+
+                        </div>
+                    </div>
+
+                    <div class="works-year-label">
+                        2018
+                    </div>
+                </div>
+                <div class="works-year border-bottom">
+                    <div class="works-year-label">
+                        2017
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="https://unityroom.com/games/attractor" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/attractor.gif" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">天体ブン投げ アトラクタ</h5>
+                                        <p class="card-text">隕石を衛星軌道に捕まえてぶん投げ破壊の限りを尽くす。Unity 1週間ゲームジャム「space」で制作。</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="https://unityroom.com/games/summer-planet" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/summer-planet.gif" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">夏降る惑星</h5>
+                                        <p class="card-text">天から降り注ぐスイカを花火で撃ち落とし、もれなく喰らいつくせ。Unity 1週間ゲームジャム「夏」で制作。</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="https://www.nicovideo.jp/watch/sm31372744" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/kari-ex.jpg" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">狩りごっこオンライン</h5>
+                                        <p class="card-text">オンライン鬼ごっこゲーム。</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="works-year-label">
+                        2017
+                    </div>
+                </div>
+                <div class="works-year border-bottom">
+                    <div class="works-year-label">
+                        2016
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="legacy/cir/index.html" target="_blank">
+                                <div class="card s__ease0 s_fade s_up" data-delighter>
+                                    <img src="images/cir.png" class="card-img-top">
+                                    <div class="card-body">
+                                        <p>
+                                            <span class="badge badge-secondary">game</span>
+                                        </p>
+                                        <h5 class="card-title">回転パズル Cir</h5>
+                                        <p class="card-text">ステージを回転させて、プレイヤーをゴールへ導くパズルゲーム。Unityインターハイ2016で殊勲賞を受賞。</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="works-year-label">
+                        2016
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p>PHP</p>
-          </div>
-          <p class="text-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
-        <h3>Let's learn to code, learn to be creative!</h3>
-      </div>
-      <span class="btn message">さっそく開発する</span>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
-    </div>
-  </footer>
+    </main>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+    <script type="text/javascript" src="js/delighters.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/shuffle-text.min.js"></script>
 </body>
+
 </html>
