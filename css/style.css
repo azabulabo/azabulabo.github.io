@@ -136,7 +136,9 @@ li {
 }
 
 .logo-img {
-  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: crisp-edges; /* Firefox */
 }
 
 /*--------------------------------
