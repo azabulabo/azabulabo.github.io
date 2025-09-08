@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flappy Bird Clone</title>
+<style>
+  canvas { background: skyblue; display: block; margin: auto; }
+</style>
+</head>
+<body>
+<canvas id="game" width="320" height="480"></canvas>
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+let birdY = 200, birdV = 0;
+const gravity = 0.5, jump = -8;
+let pipes = [], frame = 0, score = 0, gameOver = false;
+
+document.addEventListener("keydown", () => { if(!gameOver) birdV = jump; else location.reload(); });
+document.addEventListener("mousedown", () => { if(!gameOver) birdV = jump; else location.reload(); });
+
+function gameLoop() {
+  if (gameOver) return;
+  frame++;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // Bird
+  birdV += gravity;
+  birdY += birdV;
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(50, birdY, 20, 20);
+
+  // Pipes
+  if (frame % 90 === 0) {
+    let top = Math.random()*200+50;
+    pipes.push({x:320, top:top, bottom:top+100});
+  }
+  ctx.fillStyle = "green";
+  for (let p of pipes) {
+    p.x -= 2;
+    ctx.fillRect(p.x, 0, 40, p.top);
+    ctx.fillRect(p.x, p.bottom, 40, canvas.height-p.bottom);
+    if (p.x === 50) score++;
+    if (50 < p.x+40 && 70 > p.x && (birdY < p.top || birdY+20 > p.bottom)) gameOver = true;
+  }
+
+  // Floor & Score
+  if (birdY > canvas.height-20 || birdY < 0) gameOver = true;
+  ctx.fillStyle = "black";
+  ctx.fillText("Score: "+score, 10, 20);
+
+  if (!gameOver) requestAnimationFrame(gameLoop);
+  else ctx.fillText("Game Over! Click/Key to Restart", 30, 240);
+}
+gameLoop();
+</script>
+</body>
+</html>
