@@ -18,7 +18,7 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
 
-// 画像読み込み
+// ===== 画像読み込み =====
 const birdFrames = ["bird1.png","bird2.png","bird3.png"].map(src => {
   const img = new Image(); img.src = src; return img;
 });
@@ -26,13 +26,26 @@ const bg = new Image(); bg.src = "bg.png";
 const ground = new Image(); ground.src = "ground.png";
 const pipe = new Image(); pipe.src = "pipe.png";
 
-// ゲーム変数
+// ===== ゲーム変数 =====
 let birdY = 200, birdV = 0;
 const gravity = 0.4, jump = -7;
 let pipes = [], frame = 0, score = 0, gameOver = false;
 let birdFrame = 0;
 
-// 入力
+// ===== 表示サイズ（比率維持） =====
+function getSize(img, targetW=null, targetH=null) {
+  const ratio = img.width / img.height;
+  if (targetW && !targetH) {
+    return {w: targetW, h: targetW / ratio};
+  } else if (!targetW && targetH) {
+    return {w: targetH * ratio, h: targetH};
+  } else if (targetW && targetH) {
+    return {w: targetW, h: targetH}; // 比率無視
+  }
+  return {w: img.width, h: img.height};
+}
+
+// ===== 入力 =====
 document.addEventListener("keydown", flap);
 document.addEventListener("mousedown", flap);
 function flap() {
@@ -40,13 +53,13 @@ function flap() {
   else location.reload();
 }
 
-// メインループ
+// ===== メインループ =====
 function gameLoop() {
   frame++;
   ctx.clearRect(0,0,canvas.width,canvas.height);
 
   // 背景
-  ctx.drawImage(bg, 0, 0);
+  ctx.drawImage(bg, 0, 0, canvas.width, canvas.height-112);
 
   // パイプ生成
   if (frame % 90 === 0) {
@@ -55,18 +68,26 @@ function gameLoop() {
   }
 
   // パイプ描画
+  const pipeSize = getSize(pipe, canvas.width*0.15); // 幅15%
   for (let p of pipes) {
     p.x -= 2;
+
+    // 上パイプ（反転）
     ctx.save();
     ctx.translate(p.x, p.top);
     ctx.scale(1, -1);
-    ctx.drawImage(pipe, 0, 0);
+    ctx.drawImage(pipe, 0, 0, pipeSize.w, pipeSize.h);
     ctx.restore();
-    ctx.drawImage(pipe, p.x, p.bottom);
+
+    // 下パイプ
+    ctx.drawImage(pipe, p.x, p.bottom, pipeSize.w, pipeSize.h);
 
     // 衝突判定
-    if (50 < p.x+52 && 90 > p.x &&
-        (birdY < p.top || birdY+24 > p.bottom)) gameOver = true;
+    const birdBox = {x:50, y:birdY, w:birdSize.w, h:birdSize.h};
+    if (birdBox.x < p.x+pipeSize.w && birdBox.x+birdBox.w > p.x &&
+        (birdBox.y < p.top || birdBox.y+birdBox.h > p.bottom)) {
+      gameOver = true;
+    }
 
     // スコア
     if (p.x === 50) score++;
@@ -76,12 +97,13 @@ function gameLoop() {
   birdV += gravity;
   birdY += birdV;
 
-  // 鳥の描画（アニメーション）
+  // 鳥の描画（比率保持）
+  const birdSize = getSize(birdFrames[0], null, canvas.height*0.06); // 高さ6%
   birdFrame = Math.floor(frame/10)%3;
-  ctx.drawImage(birdFrames[birdFrame], 50, birdY);
+  ctx.drawImage(birdFrames[birdFrame], 50, birdY, birdSize.w, birdSize.h);
 
   // 地面
-  ctx.drawImage(ground, 0, canvas.height-112);
+  ctx.drawImage(ground, 0, canvas.height-112, canvas.width, 112);
 
   // スコア表示
   ctx.fillStyle = "white";
