@@ -4,54 +4,98 @@
 <meta charset="UTF-8">
 <title>Flappy Bird Clone</title>
 <style>
-  canvas { background: skyblue; display: block; margin: auto; }
+  canvas { 
+    background: #70c5ce; 
+    display: block; 
+    margin: auto; 
+  }
 </style>
 </head>
 <body>
-<canvas id="game" width="320" height="480"></canvas>
+<canvas id="game" width="288" height="512"></canvas>
 <script>
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+ctx.imageSmoothingEnabled = false;
 
+// 画像読み込み
+const birdFrames = ["bird1.png","bird2.png","bird3.png"].map(src => {
+  const img = new Image(); img.src = src; return img;
+});
+const bg = new Image(); bg.src = "bg.png";
+const ground = new Image(); ground.src = "ground.png";
+const pipe = new Image(); pipe.src = "pipe.png";
+
+// ゲーム変数
 let birdY = 200, birdV = 0;
-const gravity = 0.5, jump = -8;
+const gravity = 0.4, jump = -7;
 let pipes = [], frame = 0, score = 0, gameOver = false;
+let birdFrame = 0;
 
-document.addEventListener("keydown", () => { if(!gameOver) birdV = jump; else location.reload(); });
-document.addEventListener("mousedown", () => { if(!gameOver) birdV = jump; else location.reload(); });
+// 入力
+document.addEventListener("keydown", flap);
+document.addEventListener("mousedown", flap);
+function flap() {
+  if (!gameOver) birdV = jump;
+  else location.reload();
+}
 
+// メインループ
 function gameLoop() {
-  if (gameOver) return;
   frame++;
   ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  // Bird
-  birdV += gravity;
-  birdY += birdV;
-  ctx.fillStyle = "yellow";
-  ctx.fillRect(50, birdY, 20, 20);
+  // 背景
+  ctx.drawImage(bg, 0, 0);
 
-  // Pipes
+  // パイプ生成
   if (frame % 90 === 0) {
-    let top = Math.random()*200+50;
-    pipes.push({x:320, top:top, bottom:top+100});
+    let top = Math.random()*150+50;
+    pipes.push({x:canvas.width, top:top, bottom:top+120});
   }
-  ctx.fillStyle = "green";
+
+  // パイプ描画
   for (let p of pipes) {
     p.x -= 2;
-    ctx.fillRect(p.x, 0, 40, p.top);
-    ctx.fillRect(p.x, p.bottom, 40, canvas.height-p.bottom);
+    ctx.save();
+    ctx.translate(p.x, p.top);
+    ctx.scale(1, -1);
+    ctx.drawImage(pipe, 0, 0);
+    ctx.restore();
+    ctx.drawImage(pipe, p.x, p.bottom);
+
+    // 衝突判定
+    if (50 < p.x+52 && 90 > p.x &&
+        (birdY < p.top || birdY+24 > p.bottom)) gameOver = true;
+
+    // スコア
     if (p.x === 50) score++;
-    if (50 < p.x+40 && 70 > p.x && (birdY < p.top || birdY+20 > p.bottom)) gameOver = true;
   }
 
-  // Floor & Score
-  if (birdY > canvas.height-20 || birdY < 0) gameOver = true;
-  ctx.fillStyle = "black";
-  ctx.fillText("Score: "+score, 10, 20);
+  // 鳥の物理
+  birdV += gravity;
+  birdY += birdV;
+
+  // 鳥の描画（アニメーション）
+  birdFrame = Math.floor(frame/10)%3;
+  ctx.drawImage(birdFrames[birdFrame], 50, birdY);
+
+  // 地面
+  ctx.drawImage(ground, 0, canvas.height-112);
+
+  // スコア表示
+  ctx.fillStyle = "white";
+  ctx.font = "20px sans-serif";
+  ctx.fillText("Score: " + score, 10, 25);
+
+  // 当たり判定（地面・天井）
+  if (birdY > canvas.height-112 || birdY < 0) gameOver = true;
 
   if (!gameOver) requestAnimationFrame(gameLoop);
-  else ctx.fillText("Game Over! Click/Key to Restart", 30, 240);
+  else {
+    ctx.fillStyle = "red";
+    ctx.fillText("Game Over! Click or Key to Restart", 20, 240);
+  }
 }
 gameLoop();
 </script>
